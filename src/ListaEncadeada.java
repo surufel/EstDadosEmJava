@@ -3,6 +3,7 @@ public class ListaEncadeada<T> {
     private No<T> inicio; // Acesso do elemento inicial
     private No<T> ultimo; // Acesso do elemento final
     private int size;
+    private final int NaoEncontrado = -1;
 
     public void add(T elemento) { // Adiciona elemento na lista encadeada (NAO no final)
         No<T> celula = new No<T>(elemento);
@@ -31,12 +32,39 @@ public class ListaEncadeada<T> {
         this.size = 0;
     }
 
+    public int buscaElemento(T elemento){
+        No<T> NoAtual = this.inicio;
+        int posicao = 0;
+        while(NoAtual != null){
+            if (NoAtual.getElemento().equals(elemento)){
+                return posicao;
+            }
+            posicao++;
+            NoAtual = NoAtual.getProximo();
+        }
+        return NaoEncontrado;
+    }
+
+    private No<T> buscaNo(int posicao){
+        if (!(posicao >= 0 && posicao < this.size)){
+            throw new IllegalArgumentException("Posicao nao existe");
+        }
+        No<T> NoAtual = this.inicio;
+        for (int i = 0; i <= posicao; i++){
+            NoAtual = NoAtual.getProximo();
+        }
+        return NoAtual;
+    }
+    public T buscaPosicao(int posicao){
+        return this.buscaNo(posicao).getElemento();
+    }
+
     public int getSize() { // Retorna o tamanho da lista encadeada
         return this.size;
     }
 
     @Override
-    public String toString() { // Retorna o elemento inicial da lista encadeada
+    public String toString() { // Retorna a lista
         // "ListaEncadeada{" + "inicio= " + inicio + "}";
         if (this.size == 0) {
             return "[]";
