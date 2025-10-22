@@ -20,6 +20,7 @@ public class ListaEncadeada<T> {
             No<T> proximo = atual.getProximo();
             atual.setElemento(null);
             atual.setProximo(null);
+            atual = proximo;
             /* Limpa a lista, buscando todos os elementos enquanto a lista
             nao for vazia, nao tem motivo para deixar a incrementacao ou decrementacao pq de certa forma ja tem
             o controle do for por conta da condicao, ent o loop nn vai ser infinito */
