@@ -15,6 +15,21 @@ public class ListaEncadeada<T> {
         this.ultimo = celula;
     }
 
+    public void clear(){
+        for (No<T> atual = this.inicio; atual != null;){
+            No<T> proximo = atual.getProximo();
+            atual.setElemento(null);
+            atual.setProximo(null);
+            /* Limpa a lista, buscando todos os elementos enquanto a lista
+            nao for vazia, nao tem motivo para deixar a incrementacao ou decrementacao pq de certa forma ja tem
+            o controle do for por conta da condicao, ent o loop nn vai ser infinito */
+        }
+
+        this.inicio = null;
+        this.ultimo = null;
+        this.size = 0;
+    }
+
     public int getSize() { // Retorna o tamanho da lista encadeada
         return this.size;
     }
