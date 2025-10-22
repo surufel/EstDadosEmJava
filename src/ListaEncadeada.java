@@ -50,7 +50,7 @@ public class ListaEncadeada<T> {
             throw new IllegalArgumentException("Posicao nao existe");
         }
         No<T> NoAtual = this.inicio;
-        for (int i = 0; i <= posicao; i++){
+        for (int i = 0; i < posicao; i++){
             NoAtual = NoAtual.getProximo();
         }
         return NoAtual;
