@@ -8,6 +8,12 @@ public class Main{
         lista.add(3);
         System.out.println(lista);
         System.out.println("Tamanho da lista:" + lista.getSize());
+        lista.clear();
+        System.out.println(lista);
+        System.out.println("Tamanho da lista:" + lista.getSize());
+        lista.add(1);
+        System.out.println(lista);
+        System.out.println("Tamanho da lista:" + lista.getSize());
         // Visualmente isso seria algo mais ou menos assim: [1]->[2]->[3]->NULL
         // O sout da lista ja mostra isso.
     }
