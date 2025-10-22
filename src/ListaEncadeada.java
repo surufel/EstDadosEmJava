@@ -19,6 +19,17 @@ public class ListaEncadeada<T> {
         return this.size;
     }
 
+    public void percorrerLista(ListaEncadeada<T> lista){
+        System.out.println("PRIMEIRO ELEMENTO DA LISTA:" + this.inicio);
+        while(this.inicio != null){
+            this.inicio = inicio.getProximo();
+            System.out.println("PERCORRENDO . . . :" + this.inicio);
+            if (this.inicio.getProximo() == null){
+                System.out.println("NENHUM ELEMENTO ENCONTRADO, FIM DA LISTA");
+            }
+        }
+    }
+
     @Override
     public String toString() { // Retorna o elemento inicial da lista encadeada
         return "ListaEncadeada{" + "inicio= " + inicio + "}";
