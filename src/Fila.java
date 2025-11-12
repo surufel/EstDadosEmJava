@@ -12,16 +12,25 @@ public class Fila {
     }
 
     public void enqueue(String valor){ // Inserir na fila
-        elementos[fim] = valor;
-        fim = (fim + 1) % elementos.length; // Valeu Prof. Isidro! (Youtube).
-        total++;
+        if (total == elementos.length){ // Se tiver cheio
+            System.out.println("Não é possível dar queue. A fila está cheia.");
+        } else{
+            elementos[fim] = valor;
+            fim = (fim + 1) % elementos.length; // Valeu Prof. Isidro! (Youtube).
+            total++;
+        }
     }
 
-    public String dequeue(){
-        String valor = elementos[inicio];
-        inicio = (inicio + 1) % elementos.length;
-        total--;
-        return valor;
+    public String dequeue() {
+        if (!isEmpty()){
+            String valor = elementos[inicio];
+            inicio = (inicio + 1) % elementos.length;
+            total--;
+            return valor;
+        } else {
+            System.out.println("Não é possível dar dequeue. A fila está vazia.");
+            return null;
+        }
     }
 
     public boolean isEmpty(){
